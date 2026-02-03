@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Software Update</title>
+
+<style>
+:root {
+  --ios-bg: #f2f2f7;
+  --card-bg: #ffffff;
+  --separator: #d1d1d6;
+  --text-primary: #000000;
+  --text-secondary: #6e6e73;
+  --ios-blue: #007aff;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: var(--ios-bg);
+  color: var(--text-primary);
+}
+
+/* Navigation Bar */
+.nav {
+  height: 44px;
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  font-weight: 600;
+  background: var(--ios-bg);
+}
+
+.nav .back {
+  color: var(--ios-blue);
+  font-weight: 500;
+}
+
+.nav .title {
+  flex: 1;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Content */
+.container {
+  padding: 16px;
+}
+
+/* Grouped Settings Card */
+.card {
+  background: var(--card-bg);
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.row {
+  padding: 14px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.row + .row {
+  border-top: 1px solid var(--separator);
+}
+
+.row span {
+  color: var(--text-secondary);
+}
+
+/* Update Card */
+.update-card {
+  padding: 16px;
+}
+
+.update-header {
+  display: flex;
+  gap: 14px;
+}
+
+.update-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #5ac8fa, #007aff);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.update-title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.update-size {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.update-text {
+  margin-top: 12px;
+  font-size: 15px;
+  line-height: 1.4;
+  color: var(--text-primary);
+}
+
+.update-text a {
+  color: var(--ios-blue);
+  text-decoration: none;
+}
+
+/* Buttons */
+.button-primary {
+  margin-top: 16px;
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
+  background: var(--ios-blue);
+  color: white;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.button-secondary {
+  margin-top: 10px;
+  text-align: center;
+  color: var(--ios-blue);
+  font-size: 16px;
+}
+
+.footer-note {
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  text-align: center;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Nav -->
+<div class="nav">
+  <div class="back">Back</div>
+  <div class="title">Software Update</div>
+  <div style="width: 40px;"></div>
+</div>
+
+<div class="container">
+
+  <!-- Settings -->
+  <div class="card">
+    <div class="row">
+      <div>Automatic Updates</div>
+      <span>Off</span>
+    </div>
+    <div class="row">
+      <div>Beta Updates</div>
+      <span>Off</span>
+    </div>
+  </div>
+
+  <!-- Update -->
+  <div class="card update-card">
+    <div class="update-header">
+      <div class="update-icon">26</div>
+      <div>
+        <div class="update-title">iOS 26.2.1</div>
+        <div class="update-size">13.29 GB</div>
+      </div>
+    </div>
+
+    <div class="update-text">
+      iOS 26 brings a new design, intelligent experiences, and improvements to the apps you rely on every day.
+      The new design with Liquid Glass brings a more expressive and seamless experience to your Lock Screen
+      and Home Screen, as well as apps, navigation, and controls.
+      <br><br>
+      Apple Intelligence is integrated into even more places, giving you the ability to learn more about
+      the content on your screen, powering Live Translation features to help you communicate across
+      languages, and unlocking new actions in Shortcuts.
+      <br><br>
+      <a href="#">Learn more...</a>
+    </div>
+
+    <button class="button-primary">Update Now</button>
+    <div class="button-secondary">Update Tonight</div>
+
+    <div class="footer-note">
+      If you select Update Tonight, iPhone will try to update when the device is locked and the battery has enough charge.
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Previous Versions</title>
+
+<style>
+/* ---------- System Colors ---------- */
+:root {
+  --bg: #f2f2f7;
+  --card: #ffffff;
+  --text: #000000;
+  --secondary: #6e6e73;
+  --link: #007aff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #000000;
+    --card: #1c1c1e;
+    --text: #ffffff;
+    --secondary: #8e8e93;
+    --link: #0a84ff;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text",
+               "Helvetica Neue", Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* ---------- Nav Bar ---------- */
+.nav {
+  height: 44px;
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+}
+
+.nav a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav .title {
+  flex: 1;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* ---------- Layout ---------- */
+.container {
+  padding: 16px;
+}
+
+.section-label {
+  font-size: 13px;
+  color: var(--secondary);
+  margin: 6px 0 8px 12px;
+  text-transform: uppercase;
+}
+
+/* ---------- iOS Info Card ---------- */
+.card {
+  background: var(--card);
+  border-radius: 14px;
+  padding: 16px;
+}
+
+.version-title {
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.changelog {
+  font-size: 15px;
+  line-height: 1.4;
+  color: var(--text);
+}
+
+.version-link {
+  margin-top: 10px;
+  display: inline-block;
+  color: var(--link);
+  text-decoration: none;
+  font-size: 15px;
+}
+
+/* ---------- Empty State ---------- */
+.empty {
+  font-size: 15px;
+  color: var(--secondary);
+}
+</style>
+</head>
+
+<body>
+
+<!-- Nav -->
+<div class="nav">
+  <a href="index.html">Back</a>
+  <div class="title">Previous Versions</div>
+  <div style="width:40px;"></div>
+</div>
+
+<div class="container" id="content" hidden>
+
+  <!-- ===== NO RELEASES YET ===== -->
+  <div class="section-label">Previous Version</div>
+  <div class="card">
+    <div class="empty">
+      No previous versions are available at this time.
+    </div>
+  </div>
+
+  <!-- ===================================================
+       PLACEHOLDER BLOCK – COPY & PASTE TO ADD VERSIONS
+       ===================================================
+
+  <div class="section-label">Previous Version</div>
+  <div class="card">
+    <div class="version-title">Skylark v1.0</div>
+
+    <div class="changelog">
+      <!-- Replace with your changelog text -->
+      Initial public release with performance improvements
+      and stability refinements.
+    </div>
+
+    <a class="version-link" href="https://example.com">
+      https://example.com
+    </a>
+  </div>
+
+  =================================================== -->
+
+</div>
+
+<script>
+/* ---------- Compatibility Gate ---------- */
+function getIOSVersion() {
+  const match = navigator.userAgent.match(/OS (\d+)_?(\d+)?/);
+  if (!match) return null;
+  return parseFloat(match[1] + "." + (match[2] || 0));
+}
+
+function isAppleMobile() {
+  return /iPhone|iPad|iPod/.test(navigator.userAgent);
+}
+
+function isAllowed() {
+  const ios = getIOSVersion();
+  if (!isAppleMobile() || ios === null) return false;
+  return ios >= 15.0 && ios <= 17.7;
+}
+
+if (!isAllowed()) {
+  alert(
+    "Previous Versions is only available on iOS and iPadOS devices " +
+    "running iOS 15.0 through 17.7.\n\n" +
+    "Your device or software version is not supported."
+  );
+} else {
+  document.getElementById("content").hidden = false;
+}
+</script>
+
+</body>
+</html>
